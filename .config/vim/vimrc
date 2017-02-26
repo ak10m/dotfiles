@@ -23,9 +23,9 @@ function! s:rc(name) abort "{{{
 endfunction"}}}
 
 
-call s:rc('os')
 call s:rc('dein')
 call s:rc('xdg')
+call s:rc('os')
 call s:rc('plugins')
 call s:rc('encoding')
 call s:rc('filetype')
