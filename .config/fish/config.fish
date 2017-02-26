@@ -1,4 +1,11 @@
+set -x XDG_CONFIG_HOME $HOME/.config
+set -x XDG_CACHE_HOME $HOME/.cache
 set -x EDITOR vim
+
+#--------------------------------------------------
+# vim
+#--------------------------------------------------
+set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' 
 
 #--------------------------------------------------
 # direnv

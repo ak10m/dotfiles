@@ -32,6 +32,14 @@ $ which fish | sudo tee -a /etc/shells
 $ chsh -s /usr/local/bin/fish
 ```
 
+vim
+-------------------------------------------------
+
+```
+brew install lua
+brew install vim --with-lua
+```
+
 direnv
 -------------------------------------------------
 
