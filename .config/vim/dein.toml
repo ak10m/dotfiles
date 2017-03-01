@@ -16,4 +16,3 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
-

@@ -1,23 +1,6 @@
 ak10m's dot files
 =================================================
 
-homebrew
--------------------------------------------------
-
-* https://brew.sh/
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-git
--------------------------------------------------
-
-* https://git-scm.com/
-
-```
-$ brew install git
-```
 
 fish
 -------------------------------------------------
@@ -32,6 +15,26 @@ $ which fish | sudo tee -a /etc/shells
 $ chsh -s /usr/local/bin/fish
 ```
 
+### fisherman
+
+* https://github.com/fisherman/fisherman
+
+```
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+fisher install hauleth/agnoster
+```
+
+### powerline fonts
+
+* https://github.com/powerline/fonts
+
+```
+git clone https://github.com/powerline/fonts
+cd fonts
+./install.sh
+```
+
+
 vim
 -------------------------------------------------
 
@@ -39,6 +42,7 @@ vim
 brew install lua
 brew install vim --with-lua
 ```
+
 
 direnv
 -------------------------------------------------
@@ -57,3 +61,9 @@ anyenv
 ```
 $ git clone https://github.com/riywo/anyenv ~/.anyenv
 ```
+
+Dracula Thema
+-------------------------------------------------
+
+* https://draculatheme.com/
+

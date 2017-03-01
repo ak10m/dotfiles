@@ -32,9 +32,9 @@ set undofile
 
 set viminfo+=n$XDG_CACHE_HOME/vim/viminfo
 
-set runtimepath-=~/.vim
+"set runtimepath-=~/.vim
 set runtimepath^=$XDG_CONFIG_HOME/vim
-set runtimepath-=~/.vim/after
+"set runtimepath-=~/.vim/after
 set runtimepath+=$XDG_CONFIG_HOME/vim/after
 
 "source $XDG_CONFIG_HOME/vim/vimrc

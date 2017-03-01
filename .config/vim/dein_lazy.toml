@@ -65,3 +65,19 @@ on_ft = ['haml', 'ruby', 'eruby']
 repo = 'basyura/unite-rails'
 depends = 'unite.vim'
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+#[[plugins]]
+#repo = 'w0ng/vim-hybrid'
+#hool_add = '''
+#  set background=dark
+#  au MyAutoCmd VimEnter * nested colorscheme hybrid
+#'''
+
+[[pligins]]
+repo = 'dracula/vim'
+hool_add = '''
+  set background=dark
+  au MyAutoCmd VimEnter * nested colorscheme dracula
+'''

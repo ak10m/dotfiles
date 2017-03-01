@@ -1,11 +1,18 @@
+
+set -g fish_user_paths "/usr/local/bin" $fish_user_paths
+
 set -x XDG_CONFIG_HOME $HOME/.config
 set -x XDG_CACHE_HOME $HOME/.cache
 set -x EDITOR vim
 
+set fish_theme agnoster
+
+
 #--------------------------------------------------
 # vim
 #--------------------------------------------------
-set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC' 
+set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
 
 #--------------------------------------------------
 # direnv
@@ -13,6 +20,7 @@ set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 if type direnv >/dev/null 2>&1
   eval (direnv hook fish)
 end
+
 
 #--------------------------------------------------
 # anyenv
@@ -22,4 +30,3 @@ if test -d $ANYENV_ROOT
   set -x PATH $ANYENV_ROOT/bin $PATH
   status --is-interactive; and source (anyenv init -|psub)
 end
-

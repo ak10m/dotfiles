@@ -15,7 +15,7 @@ augroup END
 " RC
 "---------------------------------------------------------------------------
 
-let s:vim_rc_dir = resolve(expand('<sfile>:p:h') . '/rc/')
+let s:vim_rc_dir = resolve(expand('<sfile>:p:h') . '/rc')
 
 function! s:rc(name) abort "{{{
   let rcpath = s:vim_rc_dir . '/' . a:name . '.rc.vim'
@@ -23,10 +23,12 @@ function! s:rc(name) abort "{{{
 endfunction"}}}
 
 
-call s:rc('dein')
-call s:rc('xdg')
 call s:rc('os')
+call s:rc('xdg')
+
+call s:rc('dein')
 call s:rc('plugins')
+
 call s:rc('encoding')
 call s:rc('filetype')
 call s:rc('display')
@@ -42,7 +44,8 @@ call s:rc('mapping')
 if has("syntax")
   syntax on
   set background=dark
-  colorschem hybrid
+  "colorschem dracula
+  "colorschem hybrid
   "colorschem railscasts
   "colorschem molokai
   "colorschem solarized
