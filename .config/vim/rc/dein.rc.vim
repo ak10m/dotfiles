@@ -10,7 +10,7 @@ let s:dein_toml       = fnamemodify(expand('<sfile>'), ':h').'/../dein.toml'
 let s:dein_lazy_toml  = fnamemodify(expand('<sfile>'), ':h').'/../dein_lazy.toml'
 
 if &runtimepath !~# '/dein.vim'
-  if !isdirectory(s:dein_repo_dir)
+  if !isdirectory(expand(s:dein_repo_dir))
     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
   endif
   "set runtimepath^=fnamemodify(expand(s:dein_repo_dir), ':h')
