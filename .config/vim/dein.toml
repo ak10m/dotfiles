@@ -16,3 +16,11 @@ repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    let g:lightline = { 
+    \   'colorscheme': 'wombat'
+    \}
+'''

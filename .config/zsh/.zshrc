@@ -130,25 +130,24 @@ fi
 
 
 #--------------------------------------------------
-# anyenv
+# asdf - https://github.com/asdf-vm/asdf
 #--------------------------------------------------
-export ANYENV_ROOT=$HOME/.anyenv
-if [ -d "$ANYENV_ROOT" ]; then
-  export PATH=$ANYENV_ROOT/bin:$PATH
-  eval "$(anyenv init -)"
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
 
-  # pyenv-virtualenv
-  if [ -d "$ANYENV_ROOT/envs/pyenv/plugins/pyenv-virtualenv" ]; then
-    eval "$(pyenv virtualenv-init -)"
-  fi
-fi
+# nodejs
+export GNUPGHOME="$HOME/.asdf/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
 
 
 #--------------------------------------------------
 # golang
 #--------------------------------------------------
-export GOPATH=$HOME/go
+#export GOPATH=$HOME/go
+#export PATH=$GOPATH/bin:$PATH
 
+#--------------------------------------------------
+# Google Cloud SDK
+#--------------------------------------------------
 # The next line updates PATH for the Google Cloud SDK.
 source '/usr/local/etc/google-cloud-sdk/path.zsh.inc'
 
