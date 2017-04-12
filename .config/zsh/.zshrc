@@ -43,10 +43,16 @@ setopt autopushd pushdignoredups pushdminus
 #function _autols(){print -P "%F{8}$(COLUMNS=$COLUMNS command ls -CF)%f"}
 #chpwd_functions+=(_autols)
 
+
+## Cache
+#
+
+[[ -n "$ZSH_CACHE_DIR" ]] || export ZSH_CACHE_DIR=$ZDOTDIR
+
 ## History
 #
 
-HISTFILE="$XDG_CACHE_HOME/zsh/.history"
+HISTFILE="$ZSH_CACHE_DIR/.history"
 HISTSIZE=50000
 SAVEHIST=50000
 setopt extendedhistory   # save timestamp and duration
@@ -58,7 +64,7 @@ setopt sharehistory      # share history between zsh processes
 ## Completion
 #
 
-autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+autoload -Uz compinit && compinit -d "$ZSH_CACHE_DIR/.zcompdump"
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format '%F{8}# %d%f'    # group title
 zstyle ':completion:*' group-name ''           # show all groups
@@ -118,7 +124,7 @@ test -r "$ZDOTDIR/.zshrc.mine" && source "$ZDOTDIR/.zshrc.mine" || true
 #--------------------------------------------------
 # editor
 #--------------------------------------------------
-export EDITOR=vi
+export EDITOR=nvim
 
 
 #--------------------------------------------------
@@ -132,11 +138,14 @@ fi
 #--------------------------------------------------
 # asdf - https://github.com/asdf-vm/asdf
 #--------------------------------------------------
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
 
-# nodejs
-export GNUPGHOME="$HOME/.asdf/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+if [ -d "$ASDF_DIR" ]; then
+  source $ASDF_DIR/asdf.sh
+  source $ASDF_DIR/completions/asdf.bash
+
+  # nodejs
+  export GNUPGHOME="$ASDF_DIR/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+fi
 
 
 #--------------------------------------------------
@@ -148,8 +157,11 @@ export GNUPGHOME="$HOME/.asdf/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod
 #--------------------------------------------------
 # Google Cloud SDK
 #--------------------------------------------------
-# The next line updates PATH for the Google Cloud SDK.
-source '/usr/local/etc/google-cloud-sdk/path.zsh.inc'
 
-# The next line enables shell command completion for gcloud.
-source '/usr/local/etc/google-cloud-sdk/completion.zsh.inc'
+if [ -d "$GCP_SDK_DIR" ]; then
+  # The next line updates PATH for the Google Cloud SDK.
+  source $GCP_SDK_DIR/path.zsh.inc
+
+  # The next line enables shell command completion for gcloud.
+  source $GCP_SDK_DIR/completion.zsh.inc
+fi

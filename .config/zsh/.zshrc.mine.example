@@ -1,0 +1,5 @@
+# asdf install directory
+export ASDF_DIR=$HOME/.asdf
+
+# Google Cloud SDK install directory
+export GCP_SDK_DIR=/usr/local/etc/google-cloud-sdk
