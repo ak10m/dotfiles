@@ -44,3 +44,21 @@ if test -d "$ASDF_DIR"
   mkdir -p $GNUPGHOME
   chmod 0700 $GNUPGHOME
 end
+
+#--------------------------------------------------
+# Google Cloud SDK
+#--------------------------------------------------
+
+# Google Cloud SDK install directory
+export GCP_SDK_DIR=/usr/local/lib/google-cloud-sdk
+
+if test -d "$GCP_SDK_DIR"
+  set -g fish_user_paths "$GCP_SDK_DIR/bin" $fish_user_paths
+
+  # The next line updates PATH for the Google Cloud SDK.
+  #source $GCP_SDK_DIR/path.fish.inc
+
+  # The next line enables shell command completion for gcloud.
+  #source $GCP_SDK_DIR/completion.zsh.inc
+end
+
