@@ -1,11 +1,3 @@
-[[plugins]]
-repo = 'Shougo/neomru.vim'
-on_path = '.*'
-
-[[plugins]]
-repo = 'Shougo/unite.vim'
-depends = 'neomru.vim'
-
 #[[plugins]]
 #repo = 'Shougo/neocomplete.vim'
 #depends = 'context_filetype.vim'
@@ -80,9 +72,6 @@ on_ft = ['haml', 'ruby', 'eruby']
 [[plugins]]
 repo = 'basyura/unite-rails'
 depends = 'unite.vim'
-
-[[plugins]]
-repo = 'itchyny/lightline.vim'
 
 #[[plugins]]
 #repo = 'w0ng/vim-hybrid'

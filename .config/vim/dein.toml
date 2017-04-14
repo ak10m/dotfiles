@@ -12,6 +12,14 @@ repo = 'Shougo/vimproc.vim'
   unix    = 'gmake'
 
 [[plugins]]
+repo = 'Shougo/neomru.vim'
+on_path = '.*'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
@@ -20,7 +28,21 @@ repo = 'bronson/vim-trailing-whitespace'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-    let g:lightline = { 
+    let g:lightline = {
     \   'colorscheme': 'wombat'
     \}
+'''
+
+#[[plugins]]
+#repo = 'w0ng/vim-hybrid'
+#hool_add = '''
+#  set background=dark
+#  au MyAutoCmd VimEnter * nested colorscheme hybrid
+#'''
+
+[[pligins]]
+repo = 'dracula/vim'
+hool_add = '''
+  set background=dark
+  au MyAutoCmd VimEnter * nested colorscheme dracula
 '''
