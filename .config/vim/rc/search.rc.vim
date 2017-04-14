@@ -11,5 +11,3 @@ set nowrapscan
 set incsearch
 " 検索で自動的に日本語入力を使わない
 set imsearch=0
-
-

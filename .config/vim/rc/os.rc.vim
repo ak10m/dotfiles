@@ -1,5 +1,5 @@
 "---------------------------------------------------------------------------
-" Environment
+" OS
 "---------------------------------------------------------------------------
 
 let s:is_windows = has('win16') || has('win32') || has('win64')
@@ -19,4 +19,3 @@ endfunction
 function! IsLinux() abort
   return !s:is_windows && !s:is_cygwin && !s:is_mac
 endfunction
-

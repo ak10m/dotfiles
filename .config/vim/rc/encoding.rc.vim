@@ -55,7 +55,7 @@ if has('iconv')
 
   " fileencodingsを構築
   if &encoding ==# 'utf-8'
-    
+
     "(A)
     let s:fileencodings_default = &fileencodings
     let &fileencodings = s:enc_jis .','. s:enc_euc
