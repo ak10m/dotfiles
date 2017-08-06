@@ -117,5 +117,17 @@ alias grep='grep --color=auto'
 alias diff='diff -U 0'
 
 
+## Polyfill functions
+#
+
+which which >/dev/null 2>&1 || {
+  which() {
+    command -v "$1" 2>/dev/null |
+    awk 'match($0,/^\//){print; ok=1;}
+         END {if(ok==0){print "which: not found" > "/dev/stderr"; exit 1}}'
+  }
+}
+
+
 # testing/temporary/machine-specific settings
 test -r "$ZDOTDIR/.zshrc.mine" && source "$ZDOTDIR/.zshrc.mine" || true
