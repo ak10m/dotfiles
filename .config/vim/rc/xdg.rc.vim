@@ -3,10 +3,10 @@
 "---------------------------------------------------------------------------
 
 if empty($XDG_CACHE_HOME)
-  let $XDG_CACHE_HOME = expand('~/.cache')
+  let $XDG_CACHE_HOME = resolve(expand('$HOME/.cache'))
 endif
 if empty($XDG_CONFIG_HOME)
-  let $XDG_CONFIG_HOME = expand('~/.config')
+  let $XDG_CONFIG_HOME = resolve(expand('$HOME/.config'))
 endif
 
 if !isdirectory($XDG_CACHE_HOME . "/vim/swap")
