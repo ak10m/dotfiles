@@ -20,12 +20,10 @@ require brew mac
 # Utilities
 require curl brew
 require tree brew
-
-
-#--------------------------------------------------
-# ghq - https://github.com/motemen/ghq
-#--------------------------------------------------
+require tig brew
 require ghq brew
+require peco brew
+require hub brew
 
 
 #--------------------------------------------------
@@ -70,8 +68,22 @@ if [ ! -e ~/.config/fish ]; then
   mkdir -p ~/.config
   ln -s $ROOT/.config/fish ~/.config/fish
 fi
+
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
   cecho "[install] fisherman" 35
   mkdir -p ~/.config/fish/functions
   curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
 fi
+
+
+#--------------------------------------------------
+# Powerline Fonts - https://github.com/powerline/fonts
+#--------------------------------------------------
+cat << EOT
+==== Install Powerline fonts
+
+ghq get powerline/fonts
+ghq look powerline/fonts
+./install.sh
+
+EOT
