@@ -18,6 +18,7 @@ source $ROOT/scripts/install/xcode.mac.sh
 require brew mac
 
 # Utilities
+require rmtrash brew
 require curl brew
 require tree brew
 require tig brew
