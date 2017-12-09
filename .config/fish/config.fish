@@ -12,12 +12,20 @@ set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 # theme
 set fish_theme agnoster
 
+# Environment Variables
+set -x EDITOR nvim
+
+
+# alias
+alias rm='rmtrash'
+alias gg='eval cd (ghq root)/(ghq list | peco)'
+
 
 #--------------------------------------------------
 # vim
 #--------------------------------------------------
-set -x EDITOR vim
-set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+alias vi='vim'
+#set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 
 #--------------------------------------------------
@@ -48,8 +56,10 @@ end
 #--------------------------------------------------
 # golang
 #--------------------------------------------------
-set -x GOPATH $HOME/go
-set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+if type go >/dev/null 2>&1
+  set -x GOPATH $HOME/go
+  set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+end
 
 #--------------------------------------------------
 # Google Cloud SDK

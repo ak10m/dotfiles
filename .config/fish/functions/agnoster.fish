@@ -1,1 +1,0 @@
-/Users/ak10m/.config/fisherman/agnoster/agnoster.fish
