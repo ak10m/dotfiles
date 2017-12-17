@@ -26,6 +26,8 @@ alias ch='peco_select_history (commandline -b)'
 # vim
 #--------------------------------------------------
 alias vim='nvim'
+
+#alias vi='vim'
 #set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 
