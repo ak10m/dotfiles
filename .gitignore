@@ -1,7 +1,10 @@
+# tmp
+tmp/*
+
 # zsh
 .zshrc.mine
 .zcompdump
 
 # fish
 .config/fish/*
-!/config/fish/config.fish
+!.config/fish/config.fish

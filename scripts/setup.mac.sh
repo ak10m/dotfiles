@@ -9,6 +9,10 @@ ROOT=$(cd $(dirname ${0})/../; pwd)
 source $ROOT/scripts/functions.sh
 
 ##### setup
+
+#--------------------------------------------------
+# XCode
+#--------------------------------------------------
 source $ROOT/scripts/install/xcode.mac.sh
 
 
@@ -25,6 +29,7 @@ require tig brew
 require ghq brew
 require peco brew
 require hub brew
+require python3 brew
 
 
 #--------------------------------------------------
@@ -53,8 +58,8 @@ source $ROOT/scripts/install/asdf-plugins.noarch.sh
 require nvim brew
 
 if [ ! -e ~/.config/nvim ]; then
-  cecho "[link] $ROOT/.config/vim ~/.config/nvim" 35
   mkdir -p ~/.config
+  cecho "[link] $ROOT/.config/vim ~/.config/nvim" 35
   ln -s $ROOT/.config/vim ~/.config/nvim
 fi
 
@@ -80,11 +85,5 @@ fi
 #--------------------------------------------------
 # Powerline Fonts - https://github.com/powerline/fonts
 #--------------------------------------------------
-cat << EOT
-==== Install Powerline fonts
 
-ghq get powerline/fonts
-ghq look powerline/fonts
-./install.sh
-
-EOT
+source $ROOT/scripts/install/powerline-fonts.noarch.sh

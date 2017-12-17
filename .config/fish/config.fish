@@ -10,7 +10,7 @@ set -x XDG_DATA_HOME $HOME/.local/share
 set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 
 # theme
-set fish_theme agnoster
+set fish_theme bobthefish
 
 # Environment Variables
 set -x EDITOR nvim
@@ -19,12 +19,13 @@ set -x EDITOR nvim
 # alias
 alias rm='rmtrash'
 alias gg='eval cd (ghq root)/(ghq list | peco)'
+alias ch='peco_select_history (commandline -b)'
 
 
 #--------------------------------------------------
 # vim
 #--------------------------------------------------
-alias vi='vim'
+alias vim='nvim'
 #set -x VIMINIT 'let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 
 
