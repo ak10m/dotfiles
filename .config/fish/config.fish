@@ -7,7 +7,7 @@ set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
 
 # Path
-set -g fish_user_paths "/usr/local/bin" $fish_user_paths
+#set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 
 # theme
 set fish_theme bobthefish
