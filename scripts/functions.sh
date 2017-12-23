@@ -87,6 +87,27 @@ function has_command() {
   type ${1} > /dev/null 2>&1
 }
 
+function install() {
+  local cmd="${1}"
+  local os=$(os_type)
+  local dist=${2:-${os}}
+  local scripts_dir=$(cd $(dirname $BASH_SOURCE); pwd)/install
+  local script="${cmd}.${dist}.sh"
+  cprint "[install][${dist}]" 35
+  echo " ${cmd}"
+  source "${scripts_dir}/${script}"
+}
+
+function dependency() {
+  local cmd="${1}"
+  if has_command ${cmd}; then
+    # do nothing
+    :
+  else
+    install $@
+  fi
+}
+
 function require() {
   local cmd="${1}"
   cprint "[require]" 36
@@ -95,9 +116,6 @@ function require() {
     cecho "installed" 32
   else
     cecho "not installed yet" 31
-    local os=$(os_type)
-    local scripts_dir=$(cd $(dirname $BASH_SOURCE); pwd)/install
-    local script="${1}.${2:-${os}}.sh"
-    source "${scripts_dir}/${script}"
+    install $@
   fi
 }

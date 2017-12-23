@@ -2,14 +2,14 @@
 
 set -e
 
-install_fonts() {
+install_powerline_fonts() {
   local current=$(pwd)
-  git clone https://github.com/powerline/fonts /tmp/powerline-fonts
-  cd /tmp/powerline-fonts
+  local repo=$(ghq root)/github.com/powerline/fonts
+  if [ ! -d $repo ]; then
+    ghq get powerline/fonts
+  fi
+  cd $repo
   ./install.sh
-  cd $current
 }
 
-if [ ! -d /tmp/powerline-fonts ]; then
-  install_fonts
-fi
+install_powerline_fonts

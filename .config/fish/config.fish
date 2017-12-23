@@ -17,7 +17,6 @@ set -x EDITOR nvim
 
 
 # alias
-alias rm='rmtrash'
 alias gg='eval cd (ghq root)/(ghq list | peco)'
 alias ch='peco_select_history (commandline -b)'
 

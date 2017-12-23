@@ -22,14 +22,13 @@ source $ROOT/scripts/install/xcode.mac.sh
 require brew mac
 
 # Utilities
-require rmtrash brew
 require curl brew
 require tree brew
 require tig brew
 require ghq brew
 require peco brew
 require hub brew
-require python3 brew
+require tmux brew
 
 
 #--------------------------------------------------
@@ -48,13 +47,14 @@ source $ASDF_DIR/asdf.sh
 source $ASDF_DIR/completions/asdf.bash
 
 # Plugins
-require gpg brew
+dependency gpg brew # nodejs
 source $ROOT/scripts/install/asdf-plugins.noarch.sh
 
 
 #--------------------------------------------------
 # neovim - https://github.com/neovim/neovim
 #--------------------------------------------------
+dependency python3 brew
 require nvim brew
 
 if [ ! -e ~/.config/nvim ]; then
@@ -85,5 +85,5 @@ fi
 #--------------------------------------------------
 # Powerline Fonts - https://github.com/powerline/fonts
 #--------------------------------------------------
-
-source $ROOT/scripts/install/powerline-fonts.noarch.sh
+dependency ghq brew
+install powerline-fonts noarch
