@@ -16,9 +16,11 @@ set fish_theme bobthefish
 set -x EDITOR nvim
 
 
-# alias
-alias gg='eval cd (ghq root)/(ghq list | peco)'
-alias ch='peco_select_history (commandline -b)'
+# key bindings
+function fish_user_key_bindings
+  bind \cr 'peco_select_history (commandline -b)'
+  bind \c] peco_select_ghq_repository
+end
 
 
 #--------------------------------------------------

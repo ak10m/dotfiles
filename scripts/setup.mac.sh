@@ -75,11 +75,8 @@ if [ ! -e ~/.config/fish ]; then
   ln -s $ROOT/.config/fish ~/.config/fish
 fi
 
-if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
-  cecho "[install] fisherman" 35
-  mkdir -p ~/.config/fish/functions
-  curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
-fi
+source $ROOT/scripts/install/fisher.curl.sh
+source $ROOT/scripts/install/fish-plugins.fish
 
 
 #--------------------------------------------------
