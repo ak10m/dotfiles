@@ -42,13 +42,15 @@ eval "$(direnv hook bash)"
 # asdf - https://github.com/asdf-vm/asdf
 #--------------------------------------------------
 export ASDF_DIR=$HOME/.asdf
-require asdf noarch
-source $ASDF_DIR/asdf.sh
-source $ASDF_DIR/completions/asdf.bash
+if [ ! -d $ASDF_DIR ]; then
+  require asdf noarch
+  source $ASDF_DIR/asdf.sh
+  source $ASDF_DIR/completions/asdf.bash
 
-# Plugins
-dependency gpg brew # nodejs
-source $ROOT/scripts/install/asdf-plugins.noarch.sh
+  # Plugins
+  dependency gpg brew # nodejs
+  source $ROOT/scripts/install/asdf-plugins.noarch.sh
+fi
 
 
 #--------------------------------------------------
@@ -76,7 +78,7 @@ if [ ! -e ~/.config/fish ]; then
 fi
 
 source $ROOT/scripts/install/fisher.curl.sh
-source $ROOT/scripts/install/fish-plugins.fish
+source $ROOT/scripts/install/fish-plugins.noarch.sh
 
 
 #--------------------------------------------------
