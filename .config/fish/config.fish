@@ -63,6 +63,7 @@ end
 #--------------------------------------------------
 if type go >/dev/null 2>&1
   set -x GOPATH $HOME/go
+  set -x GOBIN $GOPATH/bin
   set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
 end
 
