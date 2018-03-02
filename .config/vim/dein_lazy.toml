@@ -62,6 +62,25 @@ on_ft = 'haml'
 [[plugins]] # Golang
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+    let g:go_fmt_command = "goimports"
+    let g:go_jump_to_error = 0
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_structs = 1
+    let g:go_highlight_interfaces = 1
+    let g:go_highlight_operators = 1
+    let g:go_gocode_unimported_packages = 1
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+
+#[[plugins]]
+#repo = 'Blackrush/vim-gocode'
+#on_ft = 'go'
+
 
 # Rails
 
