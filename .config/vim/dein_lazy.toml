@@ -20,6 +20,9 @@
 #repo = 'tomtom/tcomment_vim'
 #on_i = 1
 
+[[plugins]]
+repo = 'majutsushi/tagbar.git'
+
 # Syntax highlight
 
 [[plugins]]
@@ -87,7 +90,6 @@ on_ft = 'go'
 #[[plugins]]
 #repo = 'Blackrush/vim-gocode'
 #on_ft = 'go'
-
 
 # Rails
 

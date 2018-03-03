@@ -29,6 +29,7 @@ require ghq brew
 require peco brew
 require hub brew
 require tmux brew
+require ctags brew
 
 
 #--------------------------------------------------
@@ -56,12 +57,14 @@ fi
 #--------------------------------------------------
 # neovim - https://github.com/neovim/neovim
 #--------------------------------------------------
+# for has('python3')
 dependency python3 brew
 # for vim-go
 require golang brew
 require mercurial brew
 
 require nvim brew
+pip3 install neovim
 
 if [ ! -e ~/.config/nvim ]; then
   mkdir -p ~/.config
