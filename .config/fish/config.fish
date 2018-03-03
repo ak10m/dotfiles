@@ -84,3 +84,10 @@ if test -d "$GCP_SDK_DIR"
   #source $GCP_SDK_DIR/completion.zsh.inc
 end
 
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[ -f /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/serverless.fish ]; and . /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/serverless.fish
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[ -f /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/sls.fish ]; and . /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/sls.fish
