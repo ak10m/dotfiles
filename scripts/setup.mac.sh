@@ -57,6 +57,10 @@ fi
 # neovim - https://github.com/neovim/neovim
 #--------------------------------------------------
 dependency python3 brew
+# for vim-go
+require golang brew
+require mercurial brew
+
 require nvim brew
 
 if [ ! -e ~/.config/nvim ]; then
