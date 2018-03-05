@@ -60,8 +60,8 @@ fi
 # for has('python3')
 dependency python3 brew
 # for vim-go
-require golang brew
-require mercurial brew
+require go brew
+require hg brew
 
 require nvim brew
 pip3 install neovim
