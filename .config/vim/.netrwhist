@@ -1,0 +1,3 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/ak10m/.ghq/github.com/ak10m/dotfiles/.config/vim'

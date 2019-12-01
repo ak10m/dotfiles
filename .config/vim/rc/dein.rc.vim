@@ -3,18 +3,19 @@
 "---------------------------------------------------------------------------
 
 let g:dein#install_progress_type = 'title'
-let s:cache_home      = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir        = s:cache_home . '/dein'
+
+let s:xdg_cache_home  = empty($XDG_CACHE_HOME) ? expand($HOME . '/.cache') : $XDG_CACHE_HOME
+let s:dein_dir        = s:xdg_cache_home . '/dein'
+let s:dein_repo_url   = 'https://github.com/Shougo/dein.vim'
 let s:dein_repo_dir   = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 let s:dein_toml       = fnamemodify(expand('<sfile>'), ':h').'/../dein.toml'
 let s:dein_lazy_toml  = fnamemodify(expand('<sfile>'), ':h').'/../dein_lazy.toml'
 
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(expand(s:dein_repo_dir))
-    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    execute '!git clone' s:dein_repo_url s:dein_repo_dir
   endif
-  "set runtimepath^=fnamemodify(expand(s:dein_repo_dir), ':h')
-  let &runtimepath = s:dein_repo_dir .",". &runtimepath
+  execute 'set runtimepath^=' . s:dein_repo_dir
 endif
 
 if dein#load_state(s:dein_dir)

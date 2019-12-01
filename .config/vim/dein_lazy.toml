@@ -1,62 +1,12 @@
-#[[plugins]]
-#repo = 'Shougo/neocomplete.vim'
-#depends = 'context_filetype.vim'
-#on_i = 1
-#
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#depends = ['neosnippet-snippets', 'context_filetype.vim']
-#on_i = 1
-#on_ft = 'snippet'
-#
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#
-#[[plugins]]
-#repo = 'tpope/vim-endwise'
-#on_i = 1
-#
-#[[plugins]]
-#repo = 'tomtom/tcomment_vim'
-#on_i = 1
-
-[[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''
-let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-	\ 'sro' : '.',
-	\ 'kind2scope' : {
-		\ 't' : 'ctype',
-		\ 'n' : 'ntype'
-	\ },
-	\ 'scope2kind' : {
-		\ 'ctype' : 't',
-		\ 'ntype' : 'n'
-	\ },
-	\ 'ctagsbin'  : 'gotags',
-	\ 'ctagsargs' : '-sort -silent'
-\ }
-'''
-
-# Syntax highlight
+### syntax
 
 [[plugins]]
 repo  = 'othree/html5.vim'
 on_ft = 'html'
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = 'json'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -67,30 +17,7 @@ repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 
 [[plugins]]
-repo = 'othree/yajs.vim'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'posva/vim-vue'
-
-[[plugins]]
-repo = 'elzr/vim-json'
-on_ft = 'json'
-
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = ['markdown', 'md']
-hook_add = '''
-    let g:vim_markdown_no_default_key_mappings = 1
-    let g:vim_markdown_frontmatter = 1
-    let g:vim_markdown_math = 1
-    let g:vim_markdown_toc_autofit = 1
-    let g:vim_markdown_folding_style_pythonic = 1
-'''
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['markdown', 'md']
+repo = 'peitalin/vim-jsx-typescript'
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
@@ -104,48 +31,21 @@ on_ft = 'slim'
 repo  = 'tpope/vim-haml'
 on_ft = 'haml'
 
-[[plugins]] # Golang
-repo = 'fatih/vim-go'
-on_ft = 'go'
+
+### LSP
+
+[[plubins]]
+repo = 'ryanolsonx/vim-lsp-typescript'
+on_ft = 'typescript'
 hook_add = '''
-    let g:go_fmt_command = "goimports"
-    let g:go_jump_to_error = 0
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_structs = 1
-    let g:go_highlight_interfaces = 1
-    let g:go_highlight_operators = 1
-    let g:go_gocode_unimported_packages = 1
-'''
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-
-#[[plugins]]
-#repo = 'Blackrush/vim-gocode'
-#on_ft = 'go'
-
-# Rails
-
-[[plugins]]
-repo = 'tpope/vim-rails'
-on_ft = ['haml', 'ruby', 'eruby']
-
-#[[plugins]]
-#repo = 'basyura/unite-rails'
-#depends = 'unite.vim'
-
-#[[plugins]]
-#repo = 'w0ng/vim-hybrid'
-#hool_add = '''
-#  set background=dark
-#  au MyAutoCmd VimEnter * nested colorscheme hybrid
-#'''
-
-[[pligins]]
-repo = 'dracula/vim'
-hook_add = '''
-  set background=dark
-  au MyAutoCmd VimEnter * nested colorscheme dracula
+if executable('typescript-language-server')
+  au User lsp_setup call lsp#register_server({
+      \ 'name': 'typescript-language-server',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+      \ 'whitelist': ['typescript'],
+      \ })
+endif
+let g:lsp_log_verbose = 1
+let g:lsp_log_file = expand('~/vim-lsp.log')
 '''

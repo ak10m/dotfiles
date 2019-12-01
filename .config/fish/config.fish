@@ -7,14 +7,13 @@ set -x XDG_CACHE_HOME $HOME/.cache
 set -x XDG_DATA_HOME $HOME/.local/share
 
 # Path
-#set -g fish_user_paths "/usr/local/bin" $fish_user_paths
+set -g fish_user_paths "/usr/local/bin" $fish_user_paths
 
 # theme
 set fish_theme bobthefish
 
 # Environment Variables
 set -x EDITOR nvim
-
 
 # key bindings
 function fish_user_key_bindings
@@ -63,8 +62,9 @@ end
 #--------------------------------------------------
 if type go >/dev/null 2>&1
   set -x GOPATH $HOME/go
+  mkdir -p $GOPATH/{src,bin,pkg}
   set -x GOBIN $GOPATH/bin
-  set -g fish_user_paths "$GOPATH/bin" $fish_user_paths
+  set -g fish_user_paths $GOBIN $fish_user_paths
 end
 
 #--------------------------------------------------
@@ -83,11 +83,3 @@ if test -d "$GCP_SDK_DIR"
   # The next line enables shell command completion for gcloud.
   #source $GCP_SDK_DIR/completion.zsh.inc
 end
-
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[ -f /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/serverless.fish ]; and . /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/serverless.fish
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[ -f /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/sls.fish ]; and . /Users/ak10m/.ghq/github.com/ak10m/warara/node_modules/tabtab/.completions/sls.fish
