@@ -2,7 +2,7 @@
 " dein.vim config
 "---------------------------------------------------------------------------
 
-let g:dein#install_progress_type = 'title'
+" let g:dein#install_progress_type = 'title'
 
 let s:xdg_cache_home  = empty($XDG_CACHE_HOME) ? expand($HOME . '/.cache') : $XDG_CACHE_HOME
 let s:dein_dir        = s:xdg_cache_home . '/dein'
@@ -15,7 +15,7 @@ if &runtimepath !~# '/dein.vim'
   if !isdirectory(expand(s:dein_repo_dir))
     execute '!git clone' s:dein_repo_url s:dein_repo_dir
   endif
-  execute 'set runtimepath^=' . s:dein_repo_dir
+  execute 'set runtimepath+=' . s:dein_repo_dir
 endif
 
 if dein#load_state(s:dein_dir)
