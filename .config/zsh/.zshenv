@@ -1,12 +1,11 @@
-## XDG Base Directory Specification
+# XDG Base Directory
+export XDG_CONFIG_HOME=${HOME}/.config
+export XDG_CACHE_HOME=${HOME}/.cache
+export XDG_DATA_HOME=${HOME}/.local/share
+#export XDG_STATE_HOME=${HOME}/.local/state
 
-[[ -n "$XDG_CONFIG_HOME" ]] || export XDG_CONFIG_HOME=$HOME/.config
-[[ -n "$XDG_CACHE_HOME"  ]] || export XDG_CACHE_HOME=$HOME/.cache
-[[ -n "$XDG_DATA_HOME"   ]] || export XDG_DATA_HOME=$HOME/.local/share
+mkdir -p ${XDG_CONFIG_HOME} ${XDG_CACHE_HOME} ${XDG_DATA_HOME}
 
-# zsh config directory
-export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-
-# zsh cache directory
-export ZSH_CACHE_DIR=$XDG_CACHE_HOME/zsh
-mkdir -p $ZSH_CACHE_DIR
+# config directory
+export ZDOTDIR=${XDG_CONFIG_HOME}/zsh
+mkdir -p ${ZDOTDIR}
