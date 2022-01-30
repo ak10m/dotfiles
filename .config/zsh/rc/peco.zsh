@@ -6,3 +6,6 @@ if [ ! -e "${PECO_HISTORY_ZSH}" ]; then
 fi
 
 source ${PECO_HISTORY_ZSH}
+
+PECO_GHQ_REPOSITORY_ZSH=${ZDOTDIR}/functions/zsh-peco-ghq-repository.zsh
+source ${PECO_GHQ_REPOSITORY_ZSH}

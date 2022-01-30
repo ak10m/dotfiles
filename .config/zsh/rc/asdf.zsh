@@ -11,4 +11,9 @@ if [ -d "$ASDF_DIR" ]; then
 
   # nodejs
   export GNUPGHOME="$ASDF_DIR/keyrings/nodejs" && mkdir -p "$GNUPGHOME" && chmod 0700 "$GNUPGHOME"
+
+  # java
+  if [ -e "${ASDF_DIR}/plugins/java/set-java-home.zsh" ]; then
+    source ${ASDF_DIR}/plugins/java/set-java-home.zsh
+  fi
 fi
