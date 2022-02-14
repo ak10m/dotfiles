@@ -43,7 +43,7 @@ source ${ZDOTDIR}/rc/completion.zsh
 source ${ZDOTDIR}/rc/vim.zsh
 source ${ZDOTDIR}/rc/peco.zsh
 #source ${ZDOTDIR}/rc/golang.zsh
-#source ${ZDOTDIR}/rc/google-sdk.zsh
+source ${ZDOTDIR}/rc/google-sdk.zsh
 source ${ZDOTDIR}/rc/mysql.zsh
 source ${ZDOTDIR}/rc/alias.zsh
 

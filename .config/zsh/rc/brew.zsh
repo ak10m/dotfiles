@@ -1,17 +1,21 @@
-#
+#--------------------------------------------------
+# brew - https://brew.sh/
+#--------------------------------------------------
 
-BREW_BIN=/opt/homebrew/bin/brew
+() {
+  local BREW_BIN=/opt/homebrew/bin/brew
 
-if [ ! -e ${BREW_BIN} ]; then
-  echo "brew is not found."
+  if [ ! -e "${BREW_BIN}" ]; then
+    echo "brew is not found."
 
-  echo -n "Do you want to install brew? (y/N): "
-  if read -q; then
-    # https://brew.sh/
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo -n "Do you want to install brew? (y/N): "
+    if read -q; then
+      # See: https://brew.sh/
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
   fi
-fi
 
-if [ -e ${BREW_BIN} ]; then
-  eval "$(${BREW_BIN} shellenv)"
-fi
+  if [ -e "${BREW_BIN}" ]; then
+    eval "$(${BREW_BIN} shellenv)"
+  fi
+}

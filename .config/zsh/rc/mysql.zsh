@@ -19,5 +19,7 @@
 # For pkg-config to find mysql-client@5.7 you may need to set:
 #   export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client@5.7/lib/pkgconfig"
 
-MYSQL57_BIN_DIR=/opt/homebrew/opt/mysql-client@5.7/bin
-[[ -d "${MYSQL57_BIN_DIR}" ]] && export PATH="${MYSQL57_BIN_DIR}:$PATH"
+() {
+  local MYSQL57_BIN_DIR=/opt/homebrew/opt/mysql-client@5.7/bin
+  [[ -d "${MYSQL57_BIN_DIR}" ]] && export PATH="${MYSQL57_BIN_DIR}:$PATH"
+}
