@@ -1,3 +1,9 @@
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
 ### syntax
 
 [[plugins]]
@@ -15,6 +21,21 @@ on_ft = 'json'
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
+hook_add = '''
+let g:vim_vue_plugin_config = {
+      \'syntax': {
+      \   'template': ['html'],
+      \   'script': ['javascript'],
+      \   'style': ['css'],
+      \},
+      \'full_syntax': [],
+      \'initial_indent': [],
+      \'attribute': 0,
+      \'keyword': 0,
+      \'foldexpr': 0,
+      \'debug': 0,
+      \}
+'''
 
 # [[plugins]]
 # repo = 'fatih/vim-go'
@@ -34,7 +55,11 @@ on_ft = 'typescript'
 repo = 'peitalin/vim-jsx-typescript'
 
 [[plugins]]
+repo = 'leafOfTree/vim-vue-plugin'
+
+[[plugins]]
 repo = 'jparise/vim-graphql'
+on_ft = 'graphql'
 
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'
@@ -50,7 +75,7 @@ on_ft = 'haml'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-on_ft = ['haml', 'ruby', 'eruby']
+on_ft = ['haml', 'slim', 'ruby', 'eruby']
 
 [[plugins]]
 repo = 'mattn/vim-gomod'

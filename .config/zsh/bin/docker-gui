@@ -4,11 +4,11 @@
 if (( $+commands[docker] )); then
   function {
     local container_name="portainer"
-    local portainer_port="9000"
+    local portainer_port="9090"
     local container_id=$(docker ps --filter name=$container_name -a -q)
 
     if [ -z "$container_id" ]; then
-      docker run --name $container_name -p $portainer_port:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
+      docker run -d --name $container_name -p $portainer_port:9000 -v /var/run/docker.sock:/var/run/docker.sock portainer/portainer
     else
       docker start $container_name
     fi
