@@ -1,0 +1,9 @@
+[init]
+	defaultBranch = main
+
+[alias]
+	st = status
+	co = checkout
+	ci = commit
+	br = branch
+	sw = switch
