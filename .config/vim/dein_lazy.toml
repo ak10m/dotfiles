@@ -22,8 +22,8 @@ let g:go_doc_keywordprg_enabled = v:false
 autocmd BufWritePost *.go :GoFmt
 '''
 
-[[plugins]]
-repo = 'ryanolsonx/vim-lsp-javascript'
+# [[plugins]]
+# repo = 'ryanolsonx/vim-lsp-javascript'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'

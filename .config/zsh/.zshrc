@@ -9,15 +9,18 @@
 ## General
 #
 
-LANG=ja_JP.UTF-8
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export LANG=ja_JP.UTF-8
+export CLICOLOR=true
+
 watch=all
-#log
-setopt ignoreeof # ignore ctrl-D (max: 10 times)
-setopt nobeep    # silent
+
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>' # exclude '/' for backward-kill-word
 REPORTTIME=3                       # report elapsed time (> 3 sec.)
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export LESSHISTFILE=-              # disable less history
+
+setopt ignoreeof # ignore ctrl-D (max: 10 times)
+setopt nobeep    # silent
+setopt print_eight_bit
 
 
 ## Prompt
@@ -33,6 +36,7 @@ xterm*|rxvt*)
   precmd_functions+=(_update_title) ;;
 esac
 
+
 ## Changing Directory
 #
 
@@ -44,15 +48,11 @@ setopt autopushd pushdignoredups pushdminus
 #chpwd_functions+=(_autols)
 
 
-## Cache
-#
-
-[[ -n "$ZSH_CACHE_DIR" ]] || export ZSH_CACHE_DIR=$ZDOTDIR
-
 ## History
 #
 
-HISTFILE="$ZSH_CACHE_DIR/.history"
+export LESSHISTFILE=-    # disable less history
+export HISTFILE=${ZSH_CACHE_DIR}/.history
 HISTSIZE=50000
 SAVEHIST=50000
 setopt extendedhistory   # save timestamp and duration
@@ -60,6 +60,7 @@ setopt histignorealldups # ignore duplicates
 setopt histignorespace   # ignore lines which start with space
 setopt incappendhistory  # incremental append
 setopt sharehistory      # share history between zsh processes
+
 
 ## Completion
 #
@@ -97,25 +98,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 
-## Alias
-#
-
-if type dircolors >/dev/null
-then # GNU ls
-alias _ls-color='command ls --color=auto'
-else # BSD ls
-alias _ls-color='command ls -G'
-fi
-
-alias ls='_ls-color -F' la='ls -a' ll='ls -Ahl'
-alias cp='cp -pi'
-alias mv='mv -i'
-alias df='df -h'
-alias du='du -h'
-alias su='su -l'
-alias grep='grep --color=auto'
-alias diff='diff -U 0'
-
 
 ## Polyfill functions
 #
@@ -129,5 +111,21 @@ which which >/dev/null 2>&1 || {
 }
 
 
-# testing/temporary/machine-specific settings
-test -r "$ZDOTDIR/.zshrc.mine" && source "$ZDOTDIR/.zshrc.mine" || true
+
+source ${ZDOTDIR}/rc/brew.rc.zsh
+#source ${ZDOTDIR}/rc/completion.rc.zsh
+source ${ZDOTDIR}/rc/prompt.rc.zsh
+source ${ZDOTDIR}/rc/direnv.rc.zsh
+source ${ZDOTDIR}/rc/asdf.rc.zsh
+source ${ZDOTDIR}/rc/vim.rc.zsh
+source ${ZDOTDIR}/rc/peco.rc.zsh
+source ${ZDOTDIR}/rc/docker.rc.zsh
+source ${ZDOTDIR}/rc/google-sdk.rc.zsh
+source ${ZDOTDIR}/rc/alias.rc.zsh
+
+
+### custom command
+export PATH="${ZDOTDIR}/bin:${PATH}"
+
+# override zshrc
+test -r "${ZDOTDIR}/.zshrc.mine" && source "${ZDOTDIR}/.zshrc.mine" || true
