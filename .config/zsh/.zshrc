@@ -111,10 +111,8 @@ which which >/dev/null 2>&1 || {
 }
 
 
-
 source ${ZDOTDIR}/rc/brew.rc.zsh
-#source ${ZDOTDIR}/rc/completion.rc.zsh
-source ${ZDOTDIR}/rc/prompt.rc.zsh
+source ${ZDOTDIR}/rc/git.rc.zsh
 source ${ZDOTDIR}/rc/direnv.rc.zsh
 source ${ZDOTDIR}/rc/asdf.rc.zsh
 source ${ZDOTDIR}/rc/vim.rc.zsh
@@ -122,6 +120,7 @@ source ${ZDOTDIR}/rc/peco.rc.zsh
 source ${ZDOTDIR}/rc/docker.rc.zsh
 source ${ZDOTDIR}/rc/google-sdk.rc.zsh
 source ${ZDOTDIR}/rc/alias.rc.zsh
+source ${ZDOTDIR}/rc/completion.rc.zsh
 
 
 ### custom command

@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 #--------------------------------------------------
 # Google Cloud SDK
 # https://cloud.google.com/sdk/docs/install

@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 #--------------------------------------------------
 # asdf - https://github.com/asdf-vm/asdf
 #--------------------------------------------------
@@ -5,7 +7,7 @@
 () {
   export ASDF_CONFIG_FILE=${HOME}/.config/asdf/.asdfrc
   export ASDF_DIR=${HOME}/.asdf
-  export ASDF_DATA_DIR=${XDG_CACHE_HOME}/asdf
+  # export ASDF_DATA_DIR=${XDG_CACHE_HOME}/asdf
 
   if [ ! -e "${ASDF_DIR}" ]; then
     echo "command not found: asdf"
